@@ -9,33 +9,17 @@
     <a href="Crear.html">Crear nuevo libro</a>
     
     <table>
-        <tr>
+        <thead>
             <th>ID</th>
             <th>Nombre Libro</th>
             <th>Autor </th>
             <th>Descripcion</th>
             <th>Fecha Publicacion</th>
-        </tr>
-        <th>
-            <tbody>
-
-            </tbody>
-        </th>
+        </thead>
+        <tbody id="libro-list">
+        </tbody>
     </table>
 </body>
-            <script>
-                const librosFetch =  async () =>{
-                    try {
-                        const res = await fetch ("http://localhost/3306/libro");
-                        if(!res.ok){
-                            throw new Error("Error al obtener los libros")
-                        }
-                        fetch(res)
-                            .then(res => Response.json())
-                            .then(data => res.json(data))
-                            .catch(error => console.error("Error : ", error))
-                      
-                }
-            </script>
+
 
 </html>
