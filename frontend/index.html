@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libreria</title>
+</head>
+<body>
+    <a href="Crear.html">Crear nuevo libro</a>
+    
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre Libro</th>
+            <th>Autor </th>
+            <th>Descripcion</th>
+            <th>Fecha Publicacion</th>
+        </tr>
+        <th>
+            <tbody>
+
+            </tbody>
+        </th>
+    </table>
+</body>
+            <script>
+                const librosFetch =  async () =>{
+                    try {
+                        const res = await fetch ("http://localhost/3306/libro");
+                        if(!res.ok){
+                            throw new Error("Error al obtener los libros")
+                        }
+                        fetch(res)
+                            .then(res => Response.json())
+                            .then(data => res.json(data))
+                            .catch(error => console.error("Error : ", error))
+                      
+                }
+            </script>
+
+</html>
