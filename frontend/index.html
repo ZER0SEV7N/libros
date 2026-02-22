@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    
+    <h1>Libreria ZER0 - Tarea 1: CRUD SIMPLE</h1>
     <!--Filtros-->
     <h2>Filtrar libros</h2>
-    <form class="filtro-form" id="filtro-form" >
+    <form class="filtro-form" id="filtro-form">
       <label for="filtro-nombre">Titulo del libro: </label>
       <input
         type="text"
@@ -38,11 +38,9 @@
       <label for="filtro-genero">Genero del libro: </label>
       <select id="genero-select" name="idgenero">
         <option value="">Todos los generos</option>
-        <!-- Opciones de genero se llenarán dinámicamente --></select
-      >
-      <button type="reset" >
-        Limpiar filtros
-      </button>
+        <!-- Opciones de genero se llenarán dinámicamente -->
+      </select>
+      <button type="reset" class="reset-btn">Limpiar filtros</button>
     </form>
     <table>
       <thead>
@@ -55,12 +53,12 @@
           <th>Genero</th>
           <th>Acciones</th>
         </tr>
-      <tbody id="libro-list">
+      </thead>
+
+      <tbody id="libro-list"></tbody>
     </table>
 
     <a href="form.html">Crear nuevo libro</a>
   </body>
-  <script src="script.js">
-    
-  </script>
+  <script src="script.js"></script>
 </html>

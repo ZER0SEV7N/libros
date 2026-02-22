@@ -1,40 +1,70 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formulario para libros</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1 id="titulo-form"></h1>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 id="titulo-form">Crear un nuevo libro</h1>
     <!--Formulario para crear un nuevo libro-->
     <form class="libros-form" id="crear-form">
-        
-        <input type="hidden" name="idlibro" id="idlibro" />
-        <label for="nombre">Titulo del libro: </label>
-        <input type="text" id="nombre" name="nombre" required placeholder="Inserte el Titulo del libro: " /><br><br>
-        
-        <label for="autor">Autor del libro: </label>
-        <input type="text" id="autor" name="autor" required placeholder="Inserte el Autor del libro: " /><br><br>
+      <input type="hidden" name="idlibro" id="idlibro" />
 
-        <label for="descripcion">Descripcion del libro: </label>
-        <input type="text" id="descripcion" name="descripcion" required placeholder="Inserte la Descripcion del libro: " /><br><br>
+      <label for="nombre">Titulo del libro: </label>
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        required
+        placeholder="Inserte el Titulo del libro: "
+      /><br /><br />
 
-        <label for="fechapublicacion">Fecha de publicacion del libro: </label>
-        <input type="date" id="fechapublicacion" name="fechapublicacion" required placeholder="Inserte la Fecha de publicacion del libro: " /><br><br>
+      <label for="autor">Autor del libro: </label>
+      <input
+        type="text"
+        id="autor"
+        name="autor"
+        required
+        placeholder="Inserte el Autor del libro: "
+      /><br /><br />
 
-        <label for="idgenero">Genero del libro: </label>
-        <select id="genero-select" name="idgenero" required>
-            <option value="">Seleccione un genero</option>
-        </select>
-        
-        <button class="registrar-btn" type="submit">Registrar libro</button>
-        <button class="reset-btn" type="reset">Limpiar formulario</button>
-        <button class="volver-btn" type="button" onclick="window.location.href='index.html'">Volver a libros</button>
+      <label for="descripcion">Descripcion del libro: </label>
+      <input
+        type="text"
+        id="descripcion"
+        name="descripcion"
+        required
+        placeholder="Inserte la Descripcion del libro: "
+      /><br /><br />
+
+      <label for="fechapublicacion">Fecha de publicacion del libro: </label>
+      <input
+        type="date"
+        id="fechapublicacion"
+        name="fechapublicacion"
+        required
+        placeholder="Inserte la Fecha de publicacion del libro: "
+      /><br /><br />
+
+      <label for="idgenero">Genero del libro: </label>
+      <select id="genero-select" name="idgenero" required>
+        <option value="">Seleccione un genero</option>
+      </select>
+
+      <button class="registrar-btn" id="registrar-btn" type="submit">
+        Registrar libro
+      </button>
+      <button class="reset-btn" type="reset">Limpiar formulario</button>
+      <button
+        class="volver-btn"
+        type="button"
+        onclick="window.location.href = 'index.html'"
+      >
+        Volver a libros
+      </button>
     </form>
-</body>
-    <script src="script.js">
-        
-    </script>
+  </body>
+  <script src="script.js"></script>
 </html>

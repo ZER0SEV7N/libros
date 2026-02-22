@@ -77,10 +77,11 @@ CREATE PROCEDURE SP_FILTRAR_LIBROS (
     IN p_fechapublicacion DATE
 )
 BEGIN
-    SELECT * FROM LIBROS
-    WHERE (p_nombre IS NULL OR nombre LIKE CONCAT('%', p_nombre, '%'))
-    AND (p_autor IS NULL OR autor LIKE CONCAT('%', p_autor, '%'))
-    AND (p_idgenero IS NULL OR idgenero = p_idgenero)
-    AND (p_fechapublicacion IS NULL OR fechapublicacion = p_fechapublicacion);
+    SELECT *, g.nombre AS nombre_genero FROM LIBROS l
+    JOIN GENEROS g ON l.idgenero = g.idgenero
+    WHERE (p_nombre IS NULL OR l.nombre LIKE CONCAT('%', p_nombre, '%'))
+    AND (p_autor IS NULL OR l.autor LIKE CONCAT('%', p_autor, '%'))
+    AND (p_idgenero IS NULL OR l.idgenero = p_idgenero)
+    AND (p_fechapublicacion IS NULL OR l.fechapublicacion = p_fechapublicacion);
 END//
 DELIMITER ;
