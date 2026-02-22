@@ -11,8 +11,8 @@ import { TypeOrmModule } from '@nestjs/typeorm'; //Modulo para configurar la con
       username: 'root', //nombre
       password: '',
       database: 'libreria', //NOMBRE BASE DE DATOS
-      autoLoadEntities: true,
-      synchronize: false,
+      autoLoadEntities: true, //CARGA AUTOMATICA DE ENTIDADES
+      synchronize: false, //SINCRONIZACION
     }),
   ],
 })

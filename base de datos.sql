@@ -43,7 +43,7 @@ CREATE PROCEDURE SP_INSERTAR_LIBRO (
 BEGIN
     INSERT LIBROS (nombre, autor, descripcion, fechapublicacion, idgenero) 
     VALUES (p_nombre, p_autor, p_descripcion, p_fechapublicacion, p_idgenero);
-    SELECT CONCAT('Libros en total: ', COUNT(idlibro) )AS "total" FROM LIBROS;
+    SELECT  COUNT(idlibro) AS "Total de Libros" FROM LIBROS;
 END //
 DELIMITER ;
 
@@ -64,6 +64,23 @@ BEGIN
     UPDATE LIBROS
     SET nombre = p_nombre, autor = p_autor, descripcion = p_descripcion, fechapublicacion = p_fechapublicacion, idgenero = p_idgenero
     WHERE idlibro = p_idlibro;
-    SELECT CONCAT('Se ha actualizado el libro con ID: ', p_idlibro) AS "Actualizacion";
+    SELECT  p_idlibro AS "Actualizacion: Libro ID: " ;
+END//
+DELIMITER ;
+
+-- Crear un Procedimiento almacenado para Filtrar libros por multiples criterios
+DELIMITER //
+CREATE PROCEDURE SP_FILTRAR_LIBROS (
+    IN p_nombre VARCHAR(100),
+    IN p_autor VARCHAR(100),
+    IN p_idgenero INT,
+    IN p_fechapublicacion DATE
+)
+BEGIN
+    SELECT * FROM LIBROS
+    WHERE (p_nombre IS NULL OR nombre LIKE CONCAT('%', p_nombre, '%'))
+    AND (p_autor IS NULL OR autor LIKE CONCAT('%', p_autor, '%'))
+    AND (p_idgenero IS NULL OR idgenero = p_idgenero)
+    AND (p_fechapublicacion IS NULL OR fechapublicacion = p_fechapublicacion);
 END//
 DELIMITER ;

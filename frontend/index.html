@@ -1,25 +1,66 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Libreria</title>
-</head>
-<body>
-    <a href="Crear.html">Crear nuevo libro</a>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     
+    <!--Filtros-->
+    <h2>Filtrar libros</h2>
+    <form class="filtro-form" id="filtro-form" >
+      <label for="filtro-nombre">Titulo del libro: </label>
+      <input
+        type="text"
+        id="filtro-nombre"
+        name="nombre"
+        placeholder="Filtrar por nombre"
+      />
+
+      <label for="filtro-autor">Autor del libro: </label>
+      <input
+        type="text"
+        id="filtro-autor"
+        name="autor"
+        placeholder="Filtrar por autor"
+      />
+
+      <label for="filtro-fechapublicacion">Fecha de publicacion: </label>
+      <input
+        type="date"
+        id="filtro-fechapublicacion"
+        name="fechapublicacion"
+        placeholder="Filtrar por fecha de publicacion"
+      />
+
+      <label for="filtro-genero">Genero del libro: </label>
+      <select id="genero-select" name="idgenero">
+        <option value="">Todos los generos</option>
+        <!-- Opciones de genero se llenarán dinámicamente --></select
+      >
+      <button type="reset" >
+        Limpiar filtros
+      </button>
+    </form>
     <table>
-        <thead>
-            <th>ID</th>
-            <th>Nombre Libro</th>
-            <th>Autor </th>
-            <th>Descripcion</th>
-            <th>Fecha Publicacion</th>
-        </thead>
-        <tbody id="libro-list">
-        </tbody>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Titulo</th>
+          <th>Autor</th>
+          <th>Descripcion</th>
+          <th>Fecha Publicacion</th>
+          <th>Genero</th>
+          <th>Acciones</th>
+        </tr>
+      <tbody id="libro-list">
     </table>
-</body>
 
-
+    <a href="form.html">Crear nuevo libro</a>
+  </body>
+  <script src="script.js">
+    
+  </script>
 </html>

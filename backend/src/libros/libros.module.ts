@@ -4,12 +4,12 @@ import { LibrosController } from './libros.controller';
 import { Libro } from './entities/libro.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Generos } from '../generos/entities/generos.entity';
-import { GenerosService } from 'src/generos/generos.service';
+import { GenerosModule } from 'src/generos/generos.module';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([Libro, Generos]),
-    GenerosService
+    GenerosModule
   ],
   controllers: [LibrosController],
   providers: [LibrosService],

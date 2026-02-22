@@ -1,6 +1,5 @@
 //src/libros/dto/create-libro
-import { IsNotEmpty, IsDate, IsOptional } from "class-validator";
-import { Type } from "class-transformer";
+import { IsNotEmpty, IsOptional, IsDateString, IsNumber } from "class-validator";
 export class CreateLibroDto {
 
     //Nombre
@@ -15,12 +14,11 @@ export class CreateLibroDto {
     descripcion: string
 
     //fechaPublicacion
-    @Type(() => Date)
-    @IsDate()
+    @IsDateString()
     fechapublicacion: Date
 
     //idgenero
-    @Type(() => Number)
+    @IsNumber()
     @IsNotEmpty()
     idgenero: number
 }
