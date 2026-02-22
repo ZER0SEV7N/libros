@@ -5,7 +5,6 @@
 async function obtenerLibroParaEditar(){
   //Obtener el id del libro a editar desde la url
   const params = new URLSearchParams(window.location.search);
-  //Si hay un id, obtener el libro y llenar el formulario
   const idlibro = params.get("idlibro");
   if (idlibro) {
     try {
@@ -39,13 +38,10 @@ function manejarFormularios() {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = new FormData(form);
-    //Convertir el FormData a un objeto
     const data = Object.fromEntries(formData.entries());
-    //Convertir el idgenero a un numero entero
     data.idgenero = parseInt(data.idgenero);
     //Obtener el idlibro
     const idlibro = data.idlibro;
-    //Eliminarlo del objeto para no se envie en el cuerpo de la solicitud
     delete data.idlibro;
 
     try {
@@ -70,7 +66,8 @@ function manejarFormularios() {
         alert(
           idlibro ? "Libro actualizado con éxito" : "Libro creado con éxito",
         );
-        window.location.href = "index.html"; //Redirigir a la página de libros después de crear o actualizar
+        //Redirigir a la página de libros después de crear o actualizar
+        window.location.href = "index.html"; 
       } else {
         const error = await res.json();
         alert("Error al actualizar libro:", error);
@@ -96,7 +93,6 @@ async function getLibros() {
 function FormatearLibro(data) {
   const librosTable = document.getElementById("libro-list");
   //Limpiar la tabla antes de llenarla con los libros
-
   librosTable.innerHTML = "";
 
   //Llenar la tabla con los libros
@@ -180,22 +176,19 @@ function filtrarLibros() {
     fetch(`http://localhost:3000/libros/filtrar?${params.toString()}`)
       .then((response) => response.json())
       .then((data) => {
-        //Limpiar la tabla antes de mostrar los resultados filtrados
+        //Limpiar la tabla y filtrar
         document.getElementById("libro-list").innerHTML = ""; 
-        //Actualizar la tabla de libros con los resultados filtrados
         FormatearLibro(data); 
       });
   } else {
-    //Limpiar la tabla antes de mostrar todos los libros
+    //Limpiar la tabla y mostrar los libros
     document.getElementById("libro-list").innerHTML = "";
-    //Si no hay filtros, mostrar todos los libros
     getLibros(); 
   }
 }
 
 //Funcion para editar un libro por ID
 async function editarLibro(idlibro) {
-  //Redirigir al formulario con el id del libro a editar
   window.location.href = `form.html?idlibro=${idlibro}`; 
 }
 
