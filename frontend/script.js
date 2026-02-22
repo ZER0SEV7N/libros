@@ -105,8 +105,10 @@ function FormatearLibro(data) {
       <td>${element.fechapublicacion.split("T")[0]}</td>
       <td>${element.generos?.nombre || element.nombre_genero || 'No cargado'}</td>
       <td>
-        <button class="editar-btn" onclick="editarLibro(${element.idlibro})">Actualizar</button>
-        <button class="eliminar-btn" onclick="eliminarLibro(${element.idlibro})">Eliminar</button>
+        <div class="d-flex gap-2">
+          <button class="editar-btn btn btn-outline-primary" onclick="editarLibro(${element.idlibro})">Actualizar</button>
+          <button class="eliminar-btn btn btn-outline-danger" onclick="eliminarLibro(${element.idlibro})">Eliminar</button>
+        </div>
       </td>
     </tr>`;
   });
@@ -192,10 +194,27 @@ async function editarLibro(idlibro) {
   window.location.href = `form.html?idlibro=${idlibro}`; 
 }
 
+//Funcion para cargar el navbar modularizado
+async function cargarNavbar() {
+  try {
+    const res = await fetch('layout/navbar.html');
+    if (res.ok) {
+      const navbarHtml = await res.text();
+      const navbarContainer = document.getElementById('navbar-container');
+      if (navbarContainer) {
+        navbarContainer.innerHTML = navbarHtml;
+      }
+    }
+  } catch (e) {
+    console.error("Error al cargar el navbar: ", e);
+  }
+}
+
 //Cargar los generos y los libros al iniciar la pagina
 document.addEventListener("DOMContentLoaded", () => {
   //Cargar generos para ambos
   cargarGeneros();
+  cargarNavbar();
 
   const filtros = document.getElementById("filtro-form");
   if(filtros){

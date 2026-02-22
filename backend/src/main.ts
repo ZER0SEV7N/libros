@@ -10,7 +10,7 @@ async function bootstrap() {
     forbidNonWhitelisted: true,
     transform: true,
   }));
-
+  //Habilitar CORS
   app.enableCors({
     origin: '*',
   });
