@@ -63,7 +63,6 @@ export class LibrosService {
         filtroDto.autor ?? null,
         filtroDto.genero ?? null,
         filtroDto.fechapublicacion ?? null,
-        
       ],
     );
 

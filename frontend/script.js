@@ -70,9 +70,10 @@ function manejarFormularios() {
         window.location.href = "index.html"; 
       } else {
         const error = await res.json();
-        alert("Error al actualizar libro:", error);
+        alert(idlibro ? `Error al actualizar libro: ${error.message}` : `Error al crear libro: ${error.message}`);
       }
     } catch (e) {
+      alert("Error al manejar el formulario, por favor intente de nuevo");
       console.error("Error al manejar formularios: ", e);
     }
   });

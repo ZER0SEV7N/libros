@@ -38,7 +38,7 @@ export class LibrosController {
     return this.librosService.findOne(+idlibro);
   }
 
-  //Actualizar un libro por ID
+  //PATCH: Actualizar un libro por ID
   @Patch(':idlibro')
   update(@Param('idlibro') idlibro: string, @Body() updateLibroDto: UpdateLibroDto) {
     console.log("Se ha actualizado el libro con ID:" + idlibro);

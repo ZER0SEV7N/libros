@@ -6,13 +6,13 @@ import { GenerosService } from './generos.service';
 export class GenerosController {
   constructor(private readonly generosService: GenerosService) {}
 
-  //Metodo para encontrar todos los generos
+  //GET: encontrar todos los generos
   @Get()
   findAll() {
     return this.generosService.findAll();
   }
 
-  //Metodo para encontrar uno por ID
+  //GET: encontrar un genero por ID
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.generosService.findOne(+id);

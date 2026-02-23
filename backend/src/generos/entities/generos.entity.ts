@@ -12,6 +12,7 @@ export class Generos {
     @Column({length: 100})
     nombre: string;
 
+    //Relacion con libros
     @OneToMany(() => Libro, (libro) => libro.generos)
     libros: Libro[];
 

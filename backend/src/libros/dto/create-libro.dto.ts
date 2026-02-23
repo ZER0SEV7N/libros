@@ -10,6 +10,7 @@ export class CreateLibroDto {
     @IsNotEmpty()
     autor: string
 
+    //descripcion
     @IsOptional()
     descripcion: string
 
